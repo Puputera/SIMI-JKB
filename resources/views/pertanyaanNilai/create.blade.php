@@ -33,6 +33,15 @@
                             placeholder="Pertanyaan" required="">
                     </div>
                 </div>
+                <div class="mb-4 gap-4">
+                    <label for="pengisi" class="block text-sm font-medium text-gray-900">Pertanyaan Ditujukan untuk</label>
+                    <select id="pengisi" name="pengisi" required
+                        class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="" disabled selected>Pilih Pengisi</option>
+                        <option value="perusahaan">Perusahaan</option>
+                        <option value="dosen">Dosen</option>
+                    </select>
+                </div>
                 <div class="flex justify-end">
                     <button type="submit"
                         class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">

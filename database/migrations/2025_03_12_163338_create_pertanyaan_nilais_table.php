@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pertanyaan_nilais', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan');
+            $table->string('pengisi');
             $table->timestamps();
         });
     }

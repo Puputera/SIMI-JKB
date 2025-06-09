@@ -19,8 +19,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Pengajuan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Perusahaan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(Dosen::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(Dosen::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Mahasiswa::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->date('mulai');
+            $table->date('selesai');
             $table->timestamps();
         });
     }

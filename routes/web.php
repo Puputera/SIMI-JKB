@@ -11,7 +11,10 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\PertanyaanKuisionerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\KuisionerMahasiswaController;
+use App\Http\Controllers\MagangController;
 use App\Http\Controllers\PengajuanMagangController;
+use App\Http\Controllers\SuratBalasanController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -92,6 +95,22 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', [PengajuanMagangController::class, 'create'])->name('pengajuanMagang.create');
         Route::post('/', [PengajuanMagangController::class, 'store'])->name('pengajuanMagang.store');
         Route::put('/{id}/status', [PengajuanMagangController::class, 'updateStatus'])->name('pengajuanMagang.updateStatus');
+    });
+
+    Route::prefix('suratBalasan')->group(function () {
+        Route::get('/', [SuratBalasanController::class, 'index'])->name('suratBalasan.index');
+        Route::post('/', [SuratBalasanController::class, 'store'])->name('suratBalasan.store');
+        Route::put('/{id}/konfirmasi', [SuratBalasanController::class, 'updateKonfirmasi'])->name('suratBalasan.updateKonfirmasi');
+    });
+
+    Route::prefix('magang')->group(function () {
+        Route::get('/', [MagangController::class, 'index'])->name('magang.index');
+        Route::put('/dosenPembimbing/{id}', [MagangController::class, 'updateDosen'])->name('magang.updateDosen');
+    });
+
+    Route::prefix('kuisioner-mahasiswa')->group(function () {
+        Route::get('/', [KuisionerMahasiswaController::class, 'indexMahasiswa'])->name('kuisionerMahasiswa.index');
+        Route::post('/', [KuisionerMahasiswaController::class, 'store'])->name('kuisionerMahasiswa.store');
     });
 });
 

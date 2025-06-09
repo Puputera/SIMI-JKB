@@ -8,7 +8,9 @@ class SuratBalasan extends Model
 {
     protected $fillable = [
         'pengajuan_id',
-        'surat'
+        'surat',
+        'konfirmasi',
+        'alasan'
     ];
 
     public function pengajuan()

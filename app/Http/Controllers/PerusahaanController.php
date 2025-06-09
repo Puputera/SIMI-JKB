@@ -33,14 +33,18 @@ class PerusahaanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string',
+            'email' => 'required|email',
             'alamat' => 'required|string',
-            'email' => 'required|email'
+            'kabupaten' => 'required|string',
+            'provinsi' => 'required|string',
         ]);
 
         Perusahaan::create([
             'nama' => $request->nama,
-            'alamat' => $request->alamat,
             'email' => $request->email,
+            'alamat' => $request->alamat,
+            'kabupaten' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
         ]);
 
         return redirect()->route('perusahaan.index');
@@ -69,16 +73,20 @@ class PerusahaanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string',
+            'email' => 'required|email',
             'alamat' => 'required|string',
-            'email' => 'required|email'
+            'kabupaten' => 'required|string',
+            'provinsi' => 'required|string',
         ]);
 
         $perusahaan = Perusahaan::findOrFail($id);
 
         $perusahaan->update([
             'nama' => $request->nama,
-            'alamat' => $request->alamat,
             'email' => $request->email,
+            'alamat' => $request->alamat,
+            'kabupaten' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
         ]);
 
         return redirect()->route('perusahaan.index');

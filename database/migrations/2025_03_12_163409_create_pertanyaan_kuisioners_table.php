@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('pertanyaan_kuisioners', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan');
+            $table->string('pengisi');
+            $table->enum('tipe', ['isian', 'boolean', 'skor']);
             $table->timestamps();
         });
     }

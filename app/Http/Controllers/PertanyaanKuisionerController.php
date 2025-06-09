@@ -33,10 +33,12 @@ class PertanyaanKuisionerController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required|string',
+            'pengisi' => 'required|string',
         ]);
 
         PertanyaanKuisioner::create([
             'pertanyaan' => $request->pertanyaan,
+            'pengisi' => $request->pengisi,
         ]);
 
         return redirect()->route('pertanyaanKuisioner.index');
@@ -65,12 +67,14 @@ class PertanyaanKuisionerController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required|string',
+            'pengisi' => 'required|string',
         ]);
 
         $pertanyaanKuisioner = PertanyaanKuisioner::findOrFail($id);
 
         $pertanyaanKuisioner->update([
             'pertanyaan' => $request->pertanyaan,
+            'pengisi' => $request->pengisi,
         ]);
 
         return redirect()->route('pertanyaanKuisioner.index');

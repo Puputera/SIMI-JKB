@@ -68,9 +68,16 @@
             </li>
 
             <li>
-                <a href="{{ route('pengajuanMagang.index') }}"
-                    class="{{ request()->routeIs('pengajuanMagang.index') ? 'bg-blue-700 text-white' : 'hover:bg-gray-200' }} flex items-center rounded-lg p-2 text-gray-900">
+                <a href="{{ route('suratBalasan.index') }}"
+                    class="{{ request()->routeIs('suratBalasan.index') ? 'bg-blue-700 text-white' : 'hover:bg-gray-200' }} flex items-center rounded-lg p-2 text-gray-900">
                     <span class="ms-3 flex-1 whitespace-nowrap">Surat Balasan Magang</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('magang.index') }}"
+                    class="{{ request()->routeIs('magang.index') ? 'bg-blue-700 text-white' : 'hover:bg-gray-200' }} flex items-center rounded-lg p-2 text-gray-900">
+                    <span class="ms-3 flex-1 whitespace-nowrap">Magang</span>
                 </a>
             </li>
         </ul>

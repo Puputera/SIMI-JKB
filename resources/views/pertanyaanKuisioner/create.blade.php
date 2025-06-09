@@ -27,11 +27,20 @@
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="pertanyaan"
-                            class="block mb-2 text-sm font-medium text-gray-900">Nama Perusahaan</label>
+                            class="block mb-2 text-sm font-medium text-gray-900">Masukkan Pertanyaan</label>
                         <input type="text" name="pertanyaan" id="pertanyaan"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Pertanyaan" required="">
                     </div>
+                </div>
+                <div class="mb-4 gap-4">
+                    <label for="pengisi" class="block text-sm font-medium text-gray-900">Pertanyaan Ditujukan untuk</label>
+                    <select id="pengisi" name="pengisi" required
+                        class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="" disabled selected>Pilih Pengisi</option>
+                        <option value="perusahaan">Peusahaan</option>
+                        <option value="mahasiswa">Mahasiswa</option>
+                    </select>
                 </div>
                 <div class="flex justify-end">
                     <button type="submit"

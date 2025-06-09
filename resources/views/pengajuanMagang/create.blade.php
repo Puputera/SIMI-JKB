@@ -15,17 +15,9 @@
                 placeholder="Ketik nama perusahaan">
             <datalist id="daftar-perusahaan">
                 @foreach ($perusahaan as $item)
-                    <option value="{{ $item->nama }}" data-alamat="{{ $item->alamat }}" data-email="{{ $item->email }}">
+                    <option value="{{ $item->nama }}"></option>
                 @endforeach
             </datalist>
-        </div>
-
-        {{-- Alamat Perusahaan --}}
-        <div>
-            <label for="alamat" class="mb-2 block text-sm font-medium text-gray-900">Alamat</label>
-            <input type="text" id="alamat" name="alamat"
-                class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="Alamat perusahaan">
         </div>
 
         {{-- Email Perusahaan --}}
@@ -36,6 +28,25 @@
                 placeholder="Email perusahaan">
         </div>
 
+        {{-- Alamat Perusahaan --}}
+        <div>
+            <label for="alamat" class="mb-2 block text-sm font-medium text-gray-900">Alamat</label>
+            <input type="text" id="alamat" name="alamat"
+                class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                placeholder="Alamat perusahaan">
+        </div>
+        <div>
+            <label for="kabupaten" class="mb-2 block text-sm font-medium text-gray-900">Kabupaten</label>
+            <input type="text" id="kabupaten" name="kabupaten"
+                class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                placeholder="Alamat perusahaan">
+        </div>
+        <div>
+            <label for="provinsi" class="mb-2 block text-sm font-medium text-gray-900">Provinsi</label>
+            <input type="text" id="provinsi" name="provinsi"
+                class="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                placeholder="Alamat perusahaan">
+        </div>
 
         {{-- Tertuju --}}
         <div>
@@ -102,11 +113,15 @@
             const match = perusahaanData.find(p => p.nama.toLowerCase().includes(inputValue.toLowerCase()));
 
             if (match) {
-                document.getElementById('alamat').value = match.alamat ?? '';
                 document.getElementById('email').value = match.email ?? '';
+                document.getElementById('alamat').value = match.alamat ?? '';
+                document.getElementById('kabupaten').value = match.kabupaten ?? '';
+                document.getElementById('provinsi').value = match.provinsi ?? '';
             } else {
-                document.getElementById('alamat').value = '';
                 document.getElementById('email').value = '';
+                document.getElementById('alamat').value = '';
+                document.getElementById('kabupaten').value = '';
+                document.getElementById('provinsi').value = '';
             }
         });
     </script>

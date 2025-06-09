@@ -35,6 +35,15 @@
                             placeholder="pertanyaan" required="">
                     </div>
                 </div>
+                <div class="mb-4 gap-4">
+                    <label for="pengisi" class="block text-sm font-medium text-gray-900">Pertanyaan Ditujukan untuk</label>
+                    <select id="edit-pengisi" name="pengisi" required
+                        class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="" disabled selected>Pilih Pengisi</option>
+                        <option value="perusahaan">Perusahaan</option>
+                        <option value="dosen">Dosen</option>
+                    </select>
+                </div>
                 <div class="mb-4 gap-2 flex justify-end">
                     <button data-modal-hide="edit-modal" type="button"
                         class="ms-3 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100">

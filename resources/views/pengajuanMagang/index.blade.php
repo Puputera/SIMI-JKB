@@ -18,16 +18,16 @@
         <table class="w-full text-left text-sm text-gray-500 rtl:text-right">
             <thead class="bg-gray-50 text-xs uppercase text-gray-700">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-center">
+                    <th scope="col" class="px-6 py-3">
                         No.
                     </th>
-                    <th scope="col" class="px-6 py-3 text-center">
+                    <th scope="col" class="px-6 py-3">
                         Nama Mahasiswa
                     </th>
-                    <th scope="col" class="px-6 py-3 text-center">
+                    <th scope="col" class="px-6 py-3]">
                         Nama Perusahaan
                     </th>
-                    <th scope="col" class="px-6 py-3 text-center">
+                    <th scope="col" class="px-6 py-3">
                         Status
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">

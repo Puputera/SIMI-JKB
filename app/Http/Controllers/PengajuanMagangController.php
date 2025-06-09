@@ -50,6 +50,8 @@ class PengajuanMagangController extends Controller
             'nama_perusahaan' => 'required|string|max:255',
             'alamat'          => 'nullable|string|max:255',
             'email'           => 'nullable|email|max:255',
+            'kabupaten'       => 'nullable|string|max:255',
+            'provinsi'        => 'nullable|string|max:255',
             'tertuju'         => 'required|string|max:255',
             'contact_person'  => 'required|string|max:255',
             'no_hpcp'         => 'required|string|max:20',
@@ -58,23 +60,19 @@ class PengajuanMagangController extends Controller
             'deskripsi'       => 'nullable|string',
         ]);
 
-        // Ambil data mahasiswa dari user login
         $user = Auth::user();
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->firstOrFail();
-
-        // Cari perusahaan berdasarkan nama
         $perusahaan = Perusahaan::where('nama', $request->nama_perusahaan)->first();
-
-        // Jika tidak ditemukan, buat perusahaan baru
         if (!$perusahaan) {
             $perusahaan = Perusahaan::create([
-                'nama'   => $request->nama_perusahaan,
+                'nama' => $request->nama_perusahaan,
+                'email' => $request->email,
                 'alamat' => $request->alamat,
-                'email'  => $request->email,
+                'kabupaten' => $request->kabupaten,
+                'provinsi' => $request->provinsi,
             ]);
         }
 
-        // Simpan data magang
         Pengajuan::create([
             'mahasiswa_id'    => $mahasiswa->id,
             'perusahaan_id'   => $perusahaan->id,
@@ -85,6 +83,8 @@ class PengajuanMagangController extends Controller
             'selesai'         => $request->selesai,
             'deskripsi'       => $request->deskripsi,
         ]);
+
+        return redirect()->route('pengajuanMagang.index');
     }
 
     /**

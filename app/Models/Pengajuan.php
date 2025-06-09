@@ -26,4 +26,9 @@ class Pengajuan extends Model
     public function perusahaan() {
         return $this->belongsTo(Perusahaan::class);
     }
+
+    public function suratBalasan()
+    {
+        return $this->hasOne(SuratBalasan::class);
+    }
 }

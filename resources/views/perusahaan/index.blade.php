@@ -26,10 +26,16 @@
                         Nama
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Alamat
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        Kabupaten
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Provinsi
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -49,19 +55,27 @@
                             <td class="px-6 py-4">
                                 {{ $item->nama }}
                             </td>
+                            {{-- kolom email --}}
+                            <td class="px-6 py-4">
+                                {{ $item->email }}
+                            </td>
                             {{-- kolom alamat --}}
                             <td class="px-6 py-4">
                                 {{ $item->alamat }}
                             </td>
-                            {{-- kolom email --}}
+                            {{-- kolom alamat --}}
                             <td class="px-6 py-4">
-                                {{ $item->email }}
+                                {{ $item->kabupaten }}
+                            </td>
+                            {{-- kolom alamat --}}
+                            <td class="px-6 py-4">
+                                {{ $item->provinsi }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
                                     {{-- Tombol Edit --}}
                                     <button type="button" data-modal-target="edit-modal" data-modal-toggle="edit-modal"
-                                        onclick="edit({{ $item->id }}, '{{ addslashes($item->nama) }}',  '{{ addslashes($item->alamat) }}',  '{{ addslashes($item->email) }}')"
+                                        onclick="edit({{ $item->id }}, '{{ addslashes($item->nama) }}', '{{ addslashes($item->email) }}', '{{ addslashes($item->alamat) }}', '{{ addslashes($item->kabupaten) }}', '{{ addslashes($item->provinsi) }}')"
                                         class="flex items-center gap-2 rounded-lg bg-yellow-400 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300">
                                         <svg class="h-5 w-5 text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -101,11 +115,13 @@
     @include('perusahaan.delete')
 
     <script>
-        function edit(id, nama, alamat, email) {
+        function edit(id, nama, email, alamat, kabupaten, provinsi) {
             document.getElementById('id').value = id;
             document.getElementById('edit-nama').value = nama;
-            document.getElementById('edit-alamat').value = alamat;
             document.getElementById('edit-email').value = email;
+            document.getElementById('edit-alamat').value = alamat;            
+            document.getElementById('edit-kabupaten').value = kabupaten;
+            document.getElementById('edit-provinsi').value = provinsi;
 
             let form = document.getElementById('edit-form');
             form.action = "{{ route('perusahaan.update', '') }}/" + id;

@@ -7,7 +7,7 @@
             <!-- Modal header -->
             <div class="flex items-center justify-between rounded-t border-b border-gray-200 p-4 md:p-5">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Tambah Jurusan
+                    Tambah Perusahaan
                 </h3>
                 <button type="button"
                     class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
@@ -32,16 +32,28 @@
                             placeholder="Nama" required="">
                     </div>
                     <div class="col-span-2">
+                        <label for="email" class="mb-2 block text-sm font-medium text-gray-900">Email</label>
+                        <input type="email" name="email" id="email"
+                            class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+                            placeholder="email" required="">
+                    </div>
+                    <div class="col-span-2">
                         <label for="alamat" class="mb-2 block text-sm font-medium text-gray-900">Alamat</label>
                         <input type="text" name="alamat" id="alamat"
                             class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
                             placeholder="alamat" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="email" class="mb-2 block text-sm font-medium text-gray-900">Email</label>
-                        <input type="email" name="email" id="email"
+                        <label for="kabupaten" class="mb-2 block text-sm font-medium text-gray-900">Alamat</label>
+                        <input type="text" name="kabupaten" id="kabupaten"
                             class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
-                            placeholder="email" required="">
+                            placeholder="kabupaten" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="provinsi" class="mb-2 block text-sm font-medium text-gray-900">Alamat</label>
+                        <input type="text" name="provinsi" id="provinsi"
+                            class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+                            placeholder="provinsi" required="">
                     </div>
                 </div>
                 <div class="flex justify-end">

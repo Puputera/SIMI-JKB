@@ -33,10 +33,12 @@ class PertanyaanNilaiController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required|string',
+            'pengisi' => 'required|string',
         ]);
 
         PertanyaanNilai::create([
             'pertanyaan' => $request->pertanyaan,
+            'pengisi' => $request->pengisi,
         ]);
 
         return redirect()->route('pertanyaanNilai.index');
@@ -65,12 +67,14 @@ class PertanyaanNilaiController extends Controller
     {
         $request->validate([
             'pertanyaan' => 'required|string',
+            'pengisi' => 'required|string',
         ]);
 
         $pertanyaanNilai = PertanyaanNilai::findOrFail($id);
 
         $pertanyaanNilai->update([
             'pertanyaan' => $request->pertanyaan,
+            'pengisi' => $request->pengisi,
         ]);
 
         return redirect()->route('pertanyaanNilai.index');

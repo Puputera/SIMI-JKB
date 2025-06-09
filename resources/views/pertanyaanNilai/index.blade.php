@@ -26,6 +26,9 @@
                         Pertanyaan
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Pengisi
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -44,10 +47,13 @@
                                 {{ $item->pertanyaan }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $item->pengisi }}
+                            </td>
+                            <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
                                     {{-- Tombol Edit --}}
                                     <button type="button" data-modal-target="edit-modal" data-modal-toggle="edit-modal"
-                                        onclick="edit({{ $item->id }}, '{{ addslashes($item->pertanyaan) }}')"
+                                        onclick="edit({{ $item->id }}, '{{ addslashes($item->pertanyaan) }}', '{{ addslashes($item->pengisi) }}')"
                                         class="flex items-center gap-2 rounded-lg bg-yellow-400 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300">
                                         <svg class="h-5 w-5 text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -87,9 +93,10 @@
     @include('pertanyaanNilai.delete')
 
     <script>
-        function edit(id, pertanyaan) {
+        function edit(id, pertanyaan, pengisi) {
             document.getElementById('id').value = id;
             document.getElementById('edit-pertanyaan').value = pertanyaan;
+            document.getElementById('edit-pengisi').value = pengisi;
 
             let form = document.getElementById('edit-form');
             form.action = "{{ route('pertanyaanNilai.update', '') }}/" + id;

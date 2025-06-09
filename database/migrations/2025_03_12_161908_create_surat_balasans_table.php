@@ -16,6 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Pengajuan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('surat');
+            $table->boolean('konfirmasi')->nullable();
+            $table->string('alasan')->nullable();
             $table->timestamps();
         });
     }

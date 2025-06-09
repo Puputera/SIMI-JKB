@@ -17,7 +17,7 @@
                 @include('layouts.sidebar')
 
                 <main class="ml-64 min-h-screen flex-1 bg-gray-100 p-4">
-                    <div class="container mx-auto mt-4">
+                    <div class="container mx-auto">
                         <div class="rounded-2xl bg-white p-6 shadow-xl">
                             @yield('content')
                         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mahasiswa;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +16,9 @@ return new class extends Migration
     {
         Schema::create('kuisioner_mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Mahasiswa::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Perusahaan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(PertanyaanKuisioner::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->decimal('nilai', 5, 2);
+            $table->boolean('rekomendasi');
             $table->string('tipe_pekerjaan');
             $table->string('saran');
             $table->timestamps();

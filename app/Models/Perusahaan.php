@@ -11,8 +11,10 @@ class Perusahaan extends Model
 {
     protected $fillable = [
         'nama',
+        'email',
         'alamat',
-        'email'
+        'kabupaten',
+        'provinsi'
     ];
 
     public function pengajuan() {
