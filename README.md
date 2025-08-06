@@ -1,6 +1,6 @@
-# Sistem Informasi Magang Industri Jurusan KOmputer dan Bisnis Politeknik Negeri Cilacap
+# Sistem Informasi Magang Industri Jurusan Komputer dan Bisnis Politeknik Negeri Cilacap
 
-Sistem Informasi Magang Industri adalah aplikasi berbasis web yang dikembangkan menggunakan Laravel 11 dan dirancang untuk memudahkan proses administrasi dan monitoring kegiatan magang mahasiswa. Sistem ini mendukung berbagai peran pengguna dengan fitur yang disesuaikan.
+Sistem Informasi Magang Industri adalah aplikasi berbasis website yang dikembangkan menggunakan Laravel 11 dan dirancang untuk memudahkan proses administrasi dan monitoring kegiatan magang mahasiswa. Sistem ini mendukung berbagai peran pengguna dengan fitur yang disesuaikan.
 
 # 📌 Fitur
 ## Role
@@ -80,7 +80,7 @@ Sistem Informasi Magang Industri adalah aplikasi berbasis web yang dikembangkan 
 
 1. **Clone repositori**
    ```bash
-   git clone https://github.com/Puputera/SIMI-TA-PUPUT.git
+   git clone https://github.com/Puputera/SIMI-JKB.git
    cd SIMI-TA-PUPUT
    ```
 
@@ -106,3 +106,6 @@ Sistem Informasi Magang Industri adalah aplikasi berbasis web yang dikembangkan 
    ```bash
    php artisan serve
    ```
+
+# Contact 
+Email : puputprima48@gmail.com
