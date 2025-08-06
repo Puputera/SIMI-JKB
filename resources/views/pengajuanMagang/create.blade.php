@@ -113,15 +113,24 @@
             const match = perusahaanData.find(p => p.nama.toLowerCase().includes(inputValue.toLowerCase()));
 
             if (match) {
-                document.getElementById('email').value = match.email ?? '';
-                document.getElementById('alamat').value = match.alamat ?? '';
-                document.getElementById('kabupaten').value = match.kabupaten ?? '';
-                document.getElementById('provinsi').value = match.provinsi ?? '';
+                document.getElementById('email').value = match.email;
+                document.getElementById('alamat').value = match.alamat;
+                document.getElementById('kabupaten').value = match.kabupaten;
+                document.getElementById('provinsi').value = match.provinsi;
+
+                document.getElementById('email').disabled = true;
+                document.getElementById('alamat').disabled = true;
+                document.getElementById('kabupaten').disabled = true;
+                document.getElementById('provinsi').disabled = true;
             } else {
                 document.getElementById('email').value = '';
                 document.getElementById('alamat').value = '';
                 document.getElementById('kabupaten').value = '';
                 document.getElementById('provinsi').value = '';
+                document.getElementById('email').disabled = false;
+                document.getElementById('alamat').disabled = false;
+                document.getElementById('kabupaten').disabled = false;
+                document.getElementById('provinsi').disabled = false;
             }
         });
     </script>

@@ -12,7 +12,7 @@ class KuisionerMahasiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function indexMahasiswa()
+    public function index()
     {
         $user = Auth::user();
         $mahasiswa = $user->mahasiswa;

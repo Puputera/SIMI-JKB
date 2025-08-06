@@ -80,6 +80,13 @@
                     <span class="ms-3 flex-1 whitespace-nowrap">Magang</span>
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route('aksesPerusahaan.index') }}"
+                    class="{{ request()->routeIs('aksesPerusahaan.index') ? 'bg-blue-700 text-white' : 'hover:bg-gray-200' }} flex items-center rounded-lg p-2 text-gray-900">
+                    <span class="ms-3 flex-1 whitespace-nowrap">Akses Perusahaan</span>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>

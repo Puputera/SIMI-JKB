@@ -3,7 +3,8 @@
 @section('title', 'Pengguna')
 
 @section('content')
-    <h2 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl">Surat Balasan Penerimaan Magang</h2>
+    <h2 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl">Surat Balasan Penerimaan Magang
+    </h2>
     <div class="mb-4 flex justify-end">
         <button type="button" data-modal-target="create-modal" data-modal-toggle="create-modal"
             class="flex items-center gap-2 rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300">
@@ -89,7 +90,8 @@
                                 <div class="flex items-center gap-2">
                                     <button type="button" data-modal-target="modal-{{ $item->id }}"
                                         data-modal-toggle="modal-{{ $item->id }}"
-                                        class="flex items-center gap-2 rounded-lg bg-yellow-400 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300">
+                                        class="flex items-center gap-2 rounded-lg bg-yellow-400 px-4 py-2 text-sm font-medium text-white hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
+                                        @if ($item->konfirmasi) disabled @endif>
                                         <svg class="h-5 w-5 text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                             viewBox="0 0 24 24">

@@ -73,6 +73,14 @@ class PengajuanMagangController extends Controller
             ]);
         }
 
+        $pengajuanExists = Pengajuan::where('mahasiswa_id', $mahasiswa->id)
+            ->where('perusahaan_id', $perusahaan->id)
+            ->exists();
+
+        if ($pengajuanExists) {
+            return redirect()->back()->with('error', 'Pengajuan ke perusahaan ini sudah pernah dibuat.');
+        }
+
         Pengajuan::create([
             'mahasiswa_id'    => $mahasiswa->id,
             'perusahaan_id'   => $perusahaan->id,

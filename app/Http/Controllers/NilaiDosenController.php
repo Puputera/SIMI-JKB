@@ -2,32 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PertanyaanKuisioner;
 use Illuminate\Http\Request;
+use App\Models\PertanyaanNilai;
+use App\Models\Magang;
 
-class KuisionerPerusahaanController extends Controller
+class NilaiDosenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pertanyaan = PertanyaanKuisioner::where('pengisi', 'perusahaan')->get();
+        $pertanyaan = PertanyaanNilai::where('pengisi', 'dosen')->get();
+        $magang = Magang::with(['mahasiswa', 'perusahaan'])->findOrFail($request->magang_id);
 
-        return view ('kuisioner.perusahaan', compact('pertanyaan'));
-    }
-
-    public function indexPerusahaan()
-    {   
-        // $sudahMengisi = KuisionerMahasiswa::where('perusahaan_id', $perusahaan->id)->exists();
-
-        // if ($sudahMengisi) {
-        //     return view('kuisioner.terimakasih');
-        // }
-
-        // $pertanyaan = PertanyaanKuisioner::where('pengisi', 'mahasiswa')->get();
-
-        // return view('kuisioner.mahasiswa', compact('pertanyaan', 'mahasiswa'));
+        return view('nilai.dosen', compact('pertanyaan','magang'));
     }
 
     /**
@@ -43,7 +32,7 @@ class KuisionerPerusahaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('magang.index');
     }
 
     /**

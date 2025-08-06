@@ -2,32 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PertanyaanKuisioner;
+use App\Models\AksesToken;
+use App\Models\Perusahaan;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Magang;
 
-class KuisionerPerusahaanController extends Controller
+class AksesTokenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pertanyaan = PertanyaanKuisioner::where('pengisi', 'perusahaan')->get();
-
-        return view ('kuisioner.perusahaan', compact('pertanyaan'));
-    }
-
-    public function indexPerusahaan()
-    {   
-        // $sudahMengisi = KuisionerMahasiswa::where('perusahaan_id', $perusahaan->id)->exists();
-
-        // if ($sudahMengisi) {
-        //     return view('kuisioner.terimakasih');
-        // }
-
-        // $pertanyaan = PertanyaanKuisioner::where('pengisi', 'mahasiswa')->get();
-
-        // return view('kuisioner.mahasiswa', compact('pertanyaan', 'mahasiswa'));
+        $akses = Perusahaan::whereHas('magang', function ($query) {
+                $query->where('selesai', '>=', Carbon::today());
+                })
+                ->latest()
+                ->limit(1)
+                ->paginate(10);
+        $startNumber = ($akses->currentPage() - 1) * $akses->perPage();
+        foreach ($akses as $index => $item) {
+            $item->nomor_urut = $startNumber + $index + 1;
+        }
+        return view('aksesPerusahaan.index', compact('akses'));
     }
 
     /**

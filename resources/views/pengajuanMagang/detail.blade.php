@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="flex justify-end space-x-2 pt-4">
-                    @if ($user->role === 'kps')
+                    @if ($user->role === 'kps' && !$item->status)
                         <button type="button" data-modal-target="modal-tolak-{{ $item->id }}"
                             data-modal-toggle="modal-tolak-{{ $item->id }}"
                             data-modal-hide="modal-{{ $item->id }}"

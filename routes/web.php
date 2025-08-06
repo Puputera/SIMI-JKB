@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AksesTokenController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
@@ -12,7 +13,10 @@ use App\Http\Controllers\PertanyaanKuisionerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\KuisionerMahasiswaController;
+use App\Http\Controllers\KuisionerPerusahaanController;
 use App\Http\Controllers\MagangController;
+use App\Http\Controllers\NilaiDosenController;
+use App\Http\Controllers\NilaiPerusahaanController;
 use App\Http\Controllers\PengajuanMagangController;
 use App\Http\Controllers\SuratBalasanController;
 
@@ -20,6 +24,21 @@ use App\Http\Controllers\SuratBalasanController;
 //     return view('welcome');
 // });
 Route::get('/', [AuthenticatedSessionController::class, 'create']);
+
+Route::prefix('kuisioner-perusahaan')->group(function () {
+    Route::get('/', [KuisionerPerusahaanController::class, 'index'])->name('kuisonerPerusahaan.index');
+    Route::post('/', [KuisionerPerusahaanController::class, 'store'])->name('kuisonerPerusahaan.store');
+});
+
+Route::prefix('nilai-perusahaan')->group(function () {
+    Route::get('/', [NilaiPerusahaanController::class, 'index'])->name('nilaiPerusahaan.index');
+    Route::post('/', [NilaiPerusahaanController::class, 'store'])->name('nilaiPerusahaan.store');
+});
+
+Route::prefix('nilai-dosen')->group(function () {
+    Route::get('/', [NilaiDosenController::class, 'index'])->name('nilaiDosen.index');
+    Route::post('/', [NilaiDosenController::class, 'store'])->name('nilaiDosen.store');
+});
 
 Route::get('/dashboard', function () {
     return view('app');
@@ -109,8 +128,13 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('kuisioner-mahasiswa')->group(function () {
-        Route::get('/', [KuisionerMahasiswaController::class, 'indexMahasiswa'])->name('kuisionerMahasiswa.index');
+        Route::get('/', [KuisionerMahasiswaController::class, 'index'])->name('kuisionerMahasiswa.index');
         Route::post('/', [KuisionerMahasiswaController::class, 'store'])->name('kuisionerMahasiswa.store');
+    });
+
+    Route::prefix('akses-perusahaan')->group(function () {
+        Route::get('/', [AksesTokenController::class, 'index'])->name('aksesPerusahaan.index');
+        Route::post('/', [AksesTokenController::class, 'store'])->name('aksesPerusahaan.store');
     });
 });
 

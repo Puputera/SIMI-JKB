@@ -84,35 +84,36 @@
                                                 stroke-width="2"
                                                 d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
                                         </svg>
-                                        <span>Edit</span>
+                                        <span>Tambah Pembimbing</span>
                                     </button>
 
                                     {{-- Tombol Hapus --}}
-                                    {{-- <button type="button" data-modal-target="delete-modal" data-modal-toggle="delete-modal"
-                                        onclick="destroy({{ $item->id }})"
-                                        class="flex items-center gap-2 rounded-lg bg-red-700 px-4 py-2 text-sm font-medium text-white hover:bg-red-800 focus:ring-4 focus:ring-red-300">
-                                        <svg class="h-5 w-5 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                            viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
-                                        </svg>
-                                        <span>Hapus</span>
-                                    </button> --}}
+                                    <a href="{{ route('nilaiDosen.index', ['magang_id' => $item->id]) }}"
+                                        class="flex items-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
+                                         <svg class="h-5 w-5 text-white" aria-hidden="true"
+                                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                              viewBox="0 0 24 24">
+                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                   stroke-width="2"
+                                                   d="M12 4v16m8-8H4" />
+                                         </svg>
+                                         <span>Tambah Nilai</span>
+                                     </a>                                     
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+                @else
+                    <tr>
+                        <td colspan="7" class="py-4 text-center text-gray-500">Belum ada data magang</td>
+                    </tr>
                 @endif
             </tbody>
         </table>
         {{-- pagination --}}
         {{ $magang->links() }}
     </div>
-    {{-- @include('user.create') --}}
     @include('magang.edit')
-    {{-- @include('user.delete') --}}
 
     <script>
         function edit(id, dosen_id) {
@@ -120,14 +121,7 @@
             document.getElementById('edit-dosen_id').value = dosen_id;
 
             let form = document.getElementById('edit-form');
-            form.action = "{{ route('magang.updateDosen', '') }}/" + id;
+            form.action = "{{ route('magang.updateDosen',  '') }}/" + id;
         }
-
-        // function destroy(id) {
-        //     document.getElementById('id').value = id;
-
-        //     let form = document.getElementById('delete-form');
-        //     form.action = "{{ route('user.destroy', '') }}/" + id;
-        // }
     </script>
 @endsection

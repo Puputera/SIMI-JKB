@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Mahasiswa;
+use App\Models\NilaiMhs;
 use App\Models\PertanyaanNilai;
 
 return new class extends Migration
@@ -15,9 +16,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nilai_dosens', function (Blueprint $table) {
-            // $table->id();
-            $table->foreignIdFor(Dosen::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(Mahasiswa::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->id();
+            $table->foreignIdFor(NilaiMhs::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(PertanyaanNilai::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->decimal('nilai', 5, 2);
             $table->timestamps();

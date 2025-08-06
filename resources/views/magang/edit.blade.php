@@ -7,7 +7,7 @@
             <!-- Modal header -->
             <div class="flex items-center justify-between rounded-t border-b border-gray-200 p-4 md:p-5">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Edit Pengguna
+                    Tambah Dosen Pembimbing
                 </h3>
                 <button type="button"
                     class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
@@ -27,13 +27,18 @@
                 <input type="hidden" name="id" id="id">
                 <div class="mb-4">
                     <label for="dosen_id" class="block text-sm font-medium text-gray-900">Dosen Pembimbing</label>
-                    <select id="edit-dosen_id" name="dosen_id" required
-                        class="block w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        <option value="{{ $item->dosen_id }}" disabled selected>Pilih Dosen</option>
-                        @foreach ($dosen as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                        @endforeach
-                    </select>
+                    @if ($dosen->isNotEmpty())
+                        <select name="dosen_id" id="edit-dosen_id"
+                            class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+                            required>
+                            <option value="">Pilih Dosen</option>
+                            @foreach ($dosen as $d)
+                                <option value="{{ $d->id }}"> {{ $d->nama }}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        <option value="" disabled>Tidak ada dosen tersedia</option>
+                    @endif
                 </div>
                 <div class="mb-4 flex justify-end gap-2">
                     <button data-modal-hide="edit-modal" type="button"
@@ -46,7 +51,6 @@
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>

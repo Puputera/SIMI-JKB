@@ -14,7 +14,7 @@
                     </svg>
                 </button>
                 <a href=# class="ms-2 flex md:me-24">
-                    <img src="{{ asset('images/logo.png') }}" class="me-3 h-8" alt="Logo" />
+                    <img src="{{ asset('images/logo.png') }}" class="me-3 h-8" alt="Logo" class="max-w-[50px] h-auto"/>
                     <span
                         class="self-center whitespace-nowrap text-xl font-semibold sm:text-2xl">{{ config('app.name', 'Laravel') }}</span>
                 </a>
@@ -27,17 +27,17 @@
                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
                             <img class="h-8 w-8 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                                src="/images/user.png" alt="user photo" class="max-w-[50px] h-auto">
                         </button>
                     </div>
                     <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded-sm bg-white text-base shadow-sm"
                         id="dropdown-user">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900" role="none">
-                                Neil Sims
+                                
                             </p>
                             <p class="truncate text-sm font-medium text-gray-900" role="none">
-                                neil.sims@flowbite.com
+                                {{ Auth::user()->email }}
                             </p>
                         </div>
                         <ul class="py-1" role="none">

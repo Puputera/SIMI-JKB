@@ -1,10 +1,10 @@
 <?php
 
+use App\Models\KuisionerPerusahaan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\PertanyaanKuisioner;
-use App\Models\Perusahaan;
 
 return new class extends Migration
 {
@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kuisioner_perusahaans', function (Blueprint $table) {
+        Schema::create('hasil_kuisioner_perusahaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Perusahaan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('nama');
-            $table->string('jabatan');
-            $table->string('jumlah_mahasiswa');
-            $table->string('saran');
+            $table->foreignIdFor(KuisionerPerusahaan::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(PertanyaanKuisioner::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->integer('nilai');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kuisioner_perusahaans');
+        Schema::dropIfExists('hasil_kuisioner_perusahaans');
     }
 };

@@ -19,6 +19,10 @@ class MagangController extends Controller
         if ($user->role === 'mahasiswa') {
             $mahasiswa = $user->mahasiswa;
             $magang = Magang::where('mahasiswa_id', $mahasiswa->id)->paginate(10);
+        } 
+        else if ($user->role === 'dosen'){
+            $dosen = $user->dosen;
+            $magang = Magang::where('dosen_id', $dosen->id)->paginate(10);
         } else {
             $magang = Magang::with('mahasiswa')->paginate(10);
         }
